@@ -23,7 +23,7 @@ pipeline {
            steps {
                script {         
                  def customImage = docker.build('chinweoke/java-app', "./docker")
-                 docker.withRegistry('https://login.docker.com/u/login', 'dockerhub') {
+                 docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
                  customImage.push("${env.BUILD_NUMBER}")
                  }                     
            }
